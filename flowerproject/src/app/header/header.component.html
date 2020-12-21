@@ -1,0 +1,42 @@
+<!-- 
+ <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Flowers</label>
+    <ul>
+      <li><a class="active" href="#">Home</a></li>
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/register">Register </a></li>
+     
+    </ul>
+  </nav> -->
+
+
+
+  <nav>
+    <label class="logo">Flowers</label>
+    <ul>
+<li><a class="active" href="#">Home</a></li>
+<li><a href="#">Login 
+        <i class="fas fa-caret-down"></i>
+      </a>
+        <ul>
+<li><a routerLink="/login">User</a></li>
+<li><a routerLink="/alogin">Admin</a></li>
+
+</ul>
+</li>
+<li><a href="#">Register
+        <i class="fas fa-caret-down"></i>
+      </a>
+        <ul>
+<li><a routerLink="/register">User</a></li>
+<li><a routerLink="/aregister">Admin</a></li>
+
+</ul>
+</li>
+
+</ul>
+</nav>
