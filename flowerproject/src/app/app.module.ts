@@ -1,5 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ValidateService }  from './service/validate.service';
+import { AuthService }  from './service/auth.service';
+import {SharedData} from './service/sharedData.service';
+import {DriverService} from '../../src/app/service/driver.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,11 +60,14 @@ import { DetailproductComponent } from './detailproduct/detailproduct.component'
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
+    HttpClientModule, 
+    FlashMessagesModule.forRoot(),
    
     
   ],
-  providers: [],
+  providers: [ValidateService, AuthService,DriverService,SharedData],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

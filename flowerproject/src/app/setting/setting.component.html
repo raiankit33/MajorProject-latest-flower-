@@ -1,14 +1,15 @@
 <app-navbar2></app-navbar2>
 <br><br>
 <div class="center">
-<h1> SETTING  </h1>
+<h1> SETTINGS  </h1>
 </div>
-<br>
-<br>
+
+<button type="button" class="btn btn-primary">Add Data </button>
+<br><br>
 <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
+        
         <!-- <th > <select name="Product code" id=Prodname class="form-control" style="width: 150px;">
             <option value="">Product Name</option>
             <option value="">BBFF-1</option>
@@ -18,33 +19,45 @@
         <th scope="col">Product Name  </th>
         <th scope="col">Price</th>
         <th scope="col">Units</th>
+        <th scope="col">Action</th>
         
         
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>BBFF-1</td>
-        <td>A</td>
+        
+        <td>FP1</td>
+        <td>F1</td>
         <td> Rs 10</td>
         <td>pieces</td>
+        <td>
+          <li class="list-inline-item">
+            <button class="btn btn-success btn-sm rounded-0"   type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+        </li>
+        <li class="list-inline-item">
+          <button class="btn btn-danger btn-sm rounded-0" 
+         
+          mwlConfirmationPopover
+          
+           type="button" data-toggle="tooltip"
+          
+         
+            data-placement="top" title="Delete">
+            <i class="fa fa-trash"></i>
+          </button>
+      </li>
+        </td>
        
       </tr>
       <tr>
-        <th scope="row">1</th>
-        <td>BBFF-1</td>
-        <td>A</td>
+      
+        <td>FP2</td>
+        <td>F2</td>
         <td> Rs 10</td>
         <td>pieces</td>
       </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td>BBFF-1</td>
-        <td>A</td>
-        <td> Rs 10</td>
-        <td>pieces</td>
-      </tr>
+    
     </tbody>
   </table>
   
