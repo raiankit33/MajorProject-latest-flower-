@@ -1,32 +1,6 @@
 <app-navbar2></app-navbar2>
 
 
-<!-- 
-<div class="col-lg-9 col-md-6 col-6">
-    <div class="header_right_info">
-        <div class="search_container">
-           <form action="#">
-               <div class="hover_category">
-                    <select class="select_option" name="select" id="categori1">
-                        <option selected value="1">All Categories</option>
-                        <option value="2">Accessories</option>
-                        <option value="3">Accessories & More</option>
-                        <option value="4">Butters & Eggs</option>
-                        <option value="5">Camera & Video </option>
-                        <option value="6">Mornitors</option>
-                        <option value="7">Tablets</option>
-                        <option value="8">Laptops</option>
-                        <option value="9">Handbags</option>
-                    
-                    </select>                        
-               </div>
-                <div class="search_box">
-                    <input placeholder="Search product..." type="text">
-                     <button type="submit"><i class="fa fa-check-circle"></i></button>
-                </div>
-            </form>
-        </div> -->
-
 
 
         
@@ -43,7 +17,7 @@
           
           <th scope="col"></th>
           <th scope="col" colspan="9" style="color: aqua;">Contact Details</th>
-          <th scope="col" colspan="5"  style="color: aqua;">Order Details</th>
+          <th scope="col" colspan="6"  style="color: aqua;">Order Details</th>
           <th scope="col" colspan="5"  style="color: aqua;">Payment </th>
 
           </tr>
@@ -51,7 +25,12 @@
       <thead class="thead-dark">
         <tr style="color: red;">
           
-          <th scope="col">Order Type</th>
+          <th > Order Type <select name="Product code" id=Prodname class="form-control" style="width: 100px;">
+            
+            <option value="Whatsapp"></option>
+           
+            <option value="Web"> </option>
+        </select></th>
           <th scope="col">Company Name</th>
           <th scope="col">Contact Name</th>
           <th scope="col">Email Address</th>
@@ -64,7 +43,7 @@
           
          
 
-          
+          <th scope="col">Date</th>
           <th scope="col">Order Id</th>
           <th scope="col">Product Code</th>
           <th scope="col">Product Name</th>
@@ -81,9 +60,9 @@
         <tr>
           
           <th > <select name="Product code" id=Prodname class="form-control" style="width: 100px;">
-            <option value="">Offline</option>
+           
             <option value="Whatsapp">Whatsapp</option>
-            <option value="Reference">Reference</option>
+            
             <option value="Web"> Web</option>
         </select></th>
           <td>@</td>
@@ -102,6 +81,7 @@
           <td>FP1</td>
           <td>F1</td>
           <td>@</td>
+          <td>@</td>
           <th > <select name="Product code" id=Prodname class="form-control" style="width: 100px;">
             <option value="">order complied</option>
             <option value="Whatsapp">In Process</option>
@@ -109,6 +89,7 @@
             <option value="Web"> Out Of Stock</option>
             <option value="Web"> Delivered</option>
             <option value="Web"> Payment Received </option>
+            <option value="Web"> Payment Pending  </option>
         </select></th>
           <td>@</td>
           <td>@</td>

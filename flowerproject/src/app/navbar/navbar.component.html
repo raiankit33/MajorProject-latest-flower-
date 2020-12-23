@@ -1,6 +1,6 @@
 
     <div class="head">
-      <b>  <p style="text-align: center; font-size: 20px ;">Welcome To  User </p></b>
+      <b>  <p class="user" style="text-align: center; font-size: 20px ;">Welcome To : {{ user.name }} </p></b>
    </div>
    
 
@@ -10,7 +10,7 @@
     <ul>
       
 <li><a routerLink="/about">About
-        <i class="fa fa-caret-down"></i>
+        
       </a>
    
     </li>
@@ -24,7 +24,7 @@
         <ul>
 <li><a routerLink="/login">User</a></li>
 <li><a routerLink="/alogin">Admin</a></li>
-<li><a href="#">Logout </a></li>
+<li><a  (click)="onLogoutClick()" >Logout </a></li>
 
 </ul>
 </li>

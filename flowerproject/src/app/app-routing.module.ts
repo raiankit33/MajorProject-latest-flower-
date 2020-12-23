@@ -17,6 +17,8 @@ import { OrderComponent } from './order/order.component';
 import { ReceiveditemComponent } from './receiveditem/receiveditem.component';
 import { SalesComponent } from './sales/sales.component';
 import { SettingComponent } from './setting/setting.component';
+import { AddsettingComponent } from './addsetting/addsetting.component';
+import { AdditemComponent } from './additem/additem.component';
 
 const routes: Routes = [
 
@@ -36,7 +38,10 @@ const routes: Routes = [
   {path:'sale',component:SalesComponent},
   {path:'setting',component:SettingComponent},
   {path:'details',component:DetailproductComponent},
-  {path:'order',component:OrderComponent}
+  {path:'order',component:OrderComponent},
+  {path:'addsetting',component:AddsettingComponent},
+  {path:'additem',component:AdditemComponent}
+  
 ];
 
 @NgModule({

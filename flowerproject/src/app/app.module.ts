@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ValidateService }  from './service/validate.service';
 import { AuthService }  from './service/auth.service';
-import {SharedData} from './service/sharedData.service';
+
 import {DriverService} from '../../src/app/service/driver.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FlashMessagesModule } from 'angular2-flash-messages';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +32,8 @@ import { SalesComponent } from './sales/sales.component';
 import { SettingComponent } from './setting/setting.component';
 import { OrderComponent } from './order/order.component';
 import { DetailproductComponent } from './detailproduct/detailproduct.component';
+import { AddsettingComponent } from './addsetting/addsetting.component';
+import { AdditemComponent } from './additem/additem.component';
 
 
 
@@ -55,6 +59,8 @@ import { DetailproductComponent } from './detailproduct/detailproduct.component'
     SettingComponent,
     OrderComponent,
     DetailproductComponent,
+    AddsettingComponent,
+    AdditemComponent,
    
     
   ],
@@ -63,11 +69,16 @@ import { DetailproductComponent } from './detailproduct/detailproduct.component'
     FormsModule,
     AppRoutingModule,
     HttpClientModule, 
-    FlashMessagesModule.forRoot(),
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      timeOut :1000,
+      progressBar : true
+    }), // ToastrModule added
+    
    
     
   ],
-  providers: [ValidateService, AuthService,DriverService,SharedData],
+  providers: [ValidateService, AuthService,DriverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
