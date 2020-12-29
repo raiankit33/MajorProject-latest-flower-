@@ -30,6 +30,8 @@ const app = express();
 const users = require("./routes/users");
 const drivers = require("./routes/drivers");
 const documentRouter = require('./routes/routes'); 
+const items = require('./routes/items'); 
+const sales = require('./routes/sales'); 
 
 // CORS Middleware
 app.use(cors());
@@ -51,6 +53,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/users", users);
 app.use("/drivers", drivers);
 app.use('/documents/', documentRouter);
+app.use('/items/',items);
+app.use('/sales/',sales);
 
 app.get("/", (req, res) => {
   res.send("Invalid Endpoint");

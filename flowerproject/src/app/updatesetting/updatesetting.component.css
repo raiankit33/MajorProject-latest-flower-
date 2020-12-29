@@ -62,15 +62,15 @@ button:hover {
   width: 100%; /* Full width */
   height: 50%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: #474e5d;
+  background-color: #f3f3f5;
   padding-top: 50px;
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: rgb(55, 55, 226);
+  background-color:rgb(55, 55, 226);
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 5px solid rgb(22, 21, 21);
+  border: 1px solid #888;
   width: 60%; /* Could be more or less, depending on screen size */
 }
 

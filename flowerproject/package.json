@@ -12,10 +12,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^10.0.14",
+    "@angular/cdk": "^11.0.3",
     "@angular/common": "~10.0.6",
     "@angular/compiler": "~10.0.6",
     "@angular/core": "~10.0.6",
     "@angular/forms": "~10.0.6",
+    "@angular/localize": "~10.0.6",
+    "@angular/material": "^11.0.3",
     "@angular/platform-browser": "~10.0.6",
     "@angular/platform-browser-dynamic": "~10.0.6",
     "@angular/router": "~10.0.6",
@@ -26,6 +29,7 @@
     "mongoose": "^5.11.8",
     "ngx-toastr": "^13.2.0",
     "rxjs": "~6.5.5",
+    "sweetalert2": "^10.12.6",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },

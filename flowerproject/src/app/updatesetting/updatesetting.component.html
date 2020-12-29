@@ -1,0 +1,54 @@
+<app-navbar2></app-navbar2>
+
+
+
+
+<form class="modal-content"  (submit)="updateDriver()"   method="post">
+    <div class="container">
+      
+      <p>Please fill Details</p>
+
+      <label for="name"><b>Date  </b></label>
+      <input type="text"  required  [(ngModel)]="userObj.date" name ="date" >
+      
+      <label for="name"><b>Product Code  </b></label>
+      <input type="text"  required  [(ngModel)]="userObj.product_code" name= "product_code" >
+  
+      <label for="email"><b>Product Name</b></label>
+      <input type="text"  required     [(ngModel)]="userObj.product_name" name= "product_name"  >
+
+      <label for="email"><b>Price </b></label>
+      <input type="text"  required  [(ngModel)]="userObj.price" name= "price"  >
+  
+      <label for="email"><b>Units</b></label>
+      <input type="text"  required  [(ngModel)]="userObj.units" name= "units" >
+
+      
+      <label for="email"><b>Initial Quantity </b></label>
+      <input type="text"  required   [(ngModel)]="userObj.initial_quantity" name ="initial_quantity"  >
+
+      <label for="email"><b>Alert Level Quantity </b></label>
+      <input type="text"  required   [(ngModel)]="userObj.alert_quantity" name ="alert_quantity"  >
+
+      <label for="email"><b>Sold Quantity </b></label>
+      <input type="text"  required   [(ngModel)]="userObj.sold_quantity" name ="sold_quantity"  >
+
+
+      <label for="email"><b>Receive  Quantity </b></label>
+      <input type="text"  required   [(ngModel)]="userObj.receive_item" name ="receive_item"  >
+
+
+     
+      
+  
+      <div class="clearfix">
+        <button type="submit"  id="submitDetails"  class="btn"  >Update </button>
+         
+    
+      </div>
+        
+    </div>
+    <br>
+  
+  </form>
+  

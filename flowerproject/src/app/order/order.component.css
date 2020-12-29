@@ -307,6 +307,9 @@
 	}
 }
 
+.tablescroll{
+  overflow-x: auto;
+}
 
 
 

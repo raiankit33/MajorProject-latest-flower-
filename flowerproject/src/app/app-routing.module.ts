@@ -19,6 +19,11 @@ import { SalesComponent } from './sales/sales.component';
 import { SettingComponent } from './setting/setting.component';
 import { AddsettingComponent } from './addsetting/addsetting.component';
 import { AdditemComponent } from './additem/additem.component';
+import { UpdatesettingComponent } from './updatesetting/updatesetting.component';
+
+
+import { EditsaleComponent } from './editsale/editsale.component';
+import { EditreceiveComponent } from './editreceive/editreceive.component';
 
 const routes: Routes = [
 
@@ -40,7 +45,16 @@ const routes: Routes = [
   {path:'details',component:DetailproductComponent},
   {path:'order',component:OrderComponent},
   {path:'addsetting',component:AddsettingComponent},
-  {path:'additem',component:AdditemComponent}
+  {path:'additem',component:AdditemComponent},
+  {path:'upsetting',component:UpdatesettingComponent},
+  {path:'editreceive',component:EditreceiveComponent},
+  
+
+  {path:'editsale',component:EditsaleComponent}
+ 
+  
+  
+ 
   
 ];
 

@@ -4,55 +4,51 @@
   <h1> SALES </h1>
 </div>
 
+<!-- <button class="btn " routerLink="/addsale">add</button> -->
+<br>
+
 
 
 
 <br>
 <br>
 <br>
-<table class="table">
+<table class="table" >
     <thead class="thead-dark">
       <tr>
-       
-        
-        <th scope="col">Units</th>
         <th scope="col">Dates</th>
-        
-        <th scope="col"> Quantity</th>
-        <th scope="col">Price</th>
         <th scope="col">Product Code</th>
         <th scope="col">Product Name</th>
+        <th scope="col">Units</th>
+        
+        
+        
+        <th scope="col">Price</th>
+       
         <th scope="col">Sold Quantity</th>
         <th scope="col">Action</th>
        
        
       </tr>
     </thead>
-    <tbody>
-      <tr>
-      
-        <td>Pieces</td>
-        <td>12 Dec 2020 </td>
-        <td>100</td>
-        <td>40</td>
-        <td>FP1</td>
-        <td>F1</td>
-        <td>50</td>
+    <tbody  >
+      <tr  *ngFor = "let driver of driversDetails  "  >
+        <td>{{driver.date}}</td>
+        <td>{{driver.product_code}}</td>
+        <td>{{driver.product_name}}</td>
+        <td>{{driver.units}}</td>
+        
+        <td>Rs {{driver.price}}</td>
+        
+        <td>{{driver.sold_quantity}}</td>
         <td>
           <li class="list-inline-item">
-            <button class="btn btn-success btn-sm rounded-0"   type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+            <button class="btn btn-success btn-sm rounded-0" (click)="editDriver(driver)" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
         </li>
      
-        </td>
-      </tr>
-      <tr>
+       
         
-        <td>Pieces</td>
-        <td>12 Dec 2020 </td>
-        <td>100</td>
-        <td>40</td>
-        <td>FP2</td>
-        <td>F2</td>
+        </td>
       </tr>
      
     </tbody>

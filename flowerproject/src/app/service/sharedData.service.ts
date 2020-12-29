@@ -7,6 +7,13 @@ export class SharedData{
 
 private sharedData = new BehaviorSubject({});
   currentSharedData =this.sharedData.asObservable(); 
+
+  private productData = new BehaviorSubject({
+    price: "",
+    count: 0,
+    id: '',
+  });
+  currentProductData =this.productData.asObservable(); 
     constructor(){}
 
 
@@ -14,5 +21,10 @@ private sharedData = new BehaviorSubject({});
     updateSharedData(data){
         this.sharedData.next(data);
     }
+
+    updateProductData(product){
+      this.productData.next(product);
+    }
+   
 
 }

@@ -3,29 +3,22 @@
 
 
 
-<form class="modal-content"   method="post">
+<form class="modal-content"  (submit)= "onAddSubmit()"  method="post">
     <div class="container">
       
       <p>Please fill Details</p>
       
-      <label for="name"><b>Product Code  </b></label>
-      <input type="text"  required >
+     
   
-      <label for="email"><b>Product Name</b></label>
-      <input type="text"  required >
-
-    
-      <label for="email"><b>Units</b></label>
-      <input type="text"  required  >
 
       <label for="email"><b>Initial Quantity </b></label>
-      <input type="text"  required  >
+      <input type="text"  required   [(ngModel)]="initial_quantity" name ="initial_quantity"  >
 
       <label for="email"><b>Alert Level Quantity </b></label>
-      <input type="text"  required  >
+      <input type="text"  required   [(ngModel)]="alert_quantity" name ="alert_quantity"  >
 
       <label for="email"><b>Remark </b></label>
-      <input type="text"  required  >
+      <input type="text"  required   [(ngModel)]="remarks" name ="remarks"  >
     
   
       <div class="clearfix">

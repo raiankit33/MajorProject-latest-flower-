@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ValidateService }  from './service/validate.service';
 import { AuthService }  from './service/auth.service';
+import {SharedData} from './service/sharedData.service';
 
 import {DriverService} from '../../src/app/service/driver.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +36,13 @@ import { OrderComponent } from './order/order.component';
 import { DetailproductComponent } from './detailproduct/detailproduct.component';
 import { AddsettingComponent } from './addsetting/addsetting.component';
 import { AdditemComponent } from './additem/additem.component';
+import { UpdatesettingComponent } from './updatesetting/updatesetting.component';
+import { from } from 'rxjs';
+
+
+import { EditsaleComponent } from './editsale/editsale.component';
+import { EditreceiveComponent } from './editreceive/editreceive.component';
+
 
 
 
@@ -61,6 +70,13 @@ import { AdditemComponent } from './additem/additem.component';
     DetailproductComponent,
     AddsettingComponent,
     AdditemComponent,
+    UpdatesettingComponent,
+  
+  
+    EditsaleComponent,
+  
+  
+    EditreceiveComponent,
    
     
   ],
@@ -68,17 +84,19 @@ import { AdditemComponent } from './additem/additem.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule, 
+    HttpClientModule,
+    MatDatepickerModule,
+    
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({
       timeOut :1000,
       progressBar : true
-    }), // ToastrModule added
+    }),  // ToastrModule added
     
    
     
   ],
-  providers: [ValidateService, AuthService,DriverService],
+  providers: [ValidateService, AuthService,DriverService,SharedData],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

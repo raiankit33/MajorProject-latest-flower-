@@ -7,7 +7,7 @@
         </select></th>
          -->
  <div class="center">
-<h1> SETTINGS  </h1>
+<h1> ITEM LIST  </h1>
 </div>
 
 
@@ -18,32 +18,41 @@
       <tr>
 
         
-        
+        <th scope="col">Date </th>
          <th scope="col">Product Code </th>
         <th scope="col">Product Name  </th>
         <th scope="col">Price</th>
         <th scope="col">Units</th>
+        <th scope="col">Initial Quantity</th>
+        
+        <th scope="col">Alert Level Quantity</th>
+        <th scope="col">Sold Quantity</th>
+        <th scope="col">Receive Quantity</th>
         <th scope="col">Action</th>
         
         
       </tr>
     </thead>
     <tbody>
-      <tr>
-        
-        <td>FP1</td>
-        <td>F1</td>
-        <td> Rs 10</td>
-        <td>pieces</td>
+      <tr *ngFor = "let driver of driversDetails ">
+        <td>{{driver.date}}</td>
+        <td>{{driver.product_code}}</td>
+        <td>{{driver.product_name}}</td>
+        <td>Rs {{driver.price}}</td>
+        <td>{{driver.units}}</td>
+        <td>{{driver.initial_quantity}}</td>
+        <td>{{driver.alert_quantity}}</td>
+        <td>{{driver.sold_quantity}}</td>
+        <td>{{driver.receive_item}}</td>
         <td>
           <li class="list-inline-item">
-            <button class="btn btn-success btn-sm rounded-0"   type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+            <button class="btn btn-success btn-sm rounded-0" (click)="editDriver(driver)"  type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
         </li>
         <li class="list-inline-item">
           <button class="btn btn-danger btn-sm rounded-0" 
-         
-          mwlConfirmationPopover
           
+         
+          (click)="deleteDriver(driver._id)"
            type="button" data-toggle="tooltip"
           
          
@@ -54,13 +63,7 @@
         </td>
        
       </tr>
-      <tr>
-      
-        <td>FP2</td>
-        <td>F2</td>
-        <td> Rs 10</td>
-        <td>pieces</td>
-      </tr>
+    
     
     </tbody>
   </table>
@@ -72,4 +75,3 @@
   <br>
   
   
-

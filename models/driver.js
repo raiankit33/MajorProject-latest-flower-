@@ -2,20 +2,41 @@ const mongoose = require("mongoose");
 const config = require("../config/database");
 
 const DriverSchema = mongoose.Schema({
-  name: {
+  date: {
     type: String,
     required: true,
   },
-  email: {
+  product_code: {
     type: String,
     required: true,
   },
-  license_no: {
+  product_name: {
     type: String,
     required: true,
   },
-  contact_no: {
-    type: Number,
+  price: {
+    type: String,
+    required: true,
+  },
+  units: {
+    type: String,
+    required: true,
+  },
+  initial_quantity: {
+    type: String,
+    required: true,
+  },
+  alert_quantity: {
+    type: String,
+    required: true,
+  },
+  sold_quantity: {
+    type: String,
+    required: true,
+  },
+  receive_item: {
+    type: String,
+    required: true,
   },
   created_by: {
     type: String,

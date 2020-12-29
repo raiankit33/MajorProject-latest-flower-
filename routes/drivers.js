@@ -7,17 +7,24 @@ router.post("/register", (req, res, next) => {
   // res.send("Register Drivers");
 
   let newDriver = new Driver({
-    name: req.body.name,
-    email: req.body.email,
-    license_no: req.body.license_no,
-    contact_no: req.body.contact_no,
+    date: req.body.date,
+    product_code: req.body.product_code,
+    product_name: req.body.product_name,
+    price: req.body.price,
+    units: req.body.units,
+    initial_quantity:req.body.initial_quantity,
+    alert_quantity:req.body.alert_quantity,
+    sold_quantity:req.body.sold_quantity,
+    receive_item:req.body.receive_item,
     created_by: req.body.created_by,
   });
 
   Driver.addDriver(newDriver, (err, driver) => {
-    if (err) {
-      res.json({ success: false, msg: "Failed to add a new driver." });
+    if (err) 
+    {
+      res.json({ success: false, msg: "Failed to add a new product." });
     } else {
+      
       res.json({ success: true, msg: "Driver Added Successfully." });
     }
   });

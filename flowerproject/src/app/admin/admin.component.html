@@ -27,13 +27,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let driver of driversDetails">
        
-        <td>FP1</td>
-        <td>F1</td>
-        <td>100</td>
-        <td>50</td>
-        <td>10</td>
+        <td>{{driver.product_code}}</td>
+        <td>{{driver.product_name}}</td>
+        <td>{{driver.initial_quantity}}</td>
+        <td>{{driver.receive_item}}</td>
+        <td>{{driver.sold_quantity}}</td>
         <td>50</td>
 
         <td>10</td>
@@ -45,21 +45,7 @@
 
       </tr>
 
-      <tr>
-       
-        <td>FP2</td>
-        <td>F2</td>
-        <td>100</td>
-        <td>50</td>
-        <td>10</td>
-        <td>50</td>
-
-        <td>50</td>
-        <td>70</td>
-        <td>100</td>
-
-      </tr>
-     
+   
    
      
      
