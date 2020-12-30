@@ -37,7 +37,7 @@ router.get("/getDrivers", (req, res, next) => {
     if (err) {
       res.json({ success: false, msg: err });
     } else {
-      console.log('driver');
+     
       res.json({ success: true, count: drivers.length, data: drivers });
     }
   });

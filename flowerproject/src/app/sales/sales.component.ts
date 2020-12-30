@@ -32,7 +32,7 @@ export class SalesComponent implements OnInit {
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem("user"));
     this.getDriverDetails();
-    this.getSalesDetails();
+ 
   }
   
   
@@ -50,12 +50,7 @@ export class SalesComponent implements OnInit {
     });
   }   
 
-  getSalesDetails(){
-    this.driverService.getSalesDetails(this.user.id).subscribe((res:any)=>{
-      this.salesDetails = res.data;
-    });
-  }  
-
+ 
 
   // getSalesDetails(){
   //   this.driverService.getSalesDetails(this.user.id).subscribe((res:any)=>{

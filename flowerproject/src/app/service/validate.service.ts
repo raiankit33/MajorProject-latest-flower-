@@ -21,6 +21,15 @@ validateEmail(email){
   return re.test(String(email)); 
 }
 
+validatePassword(password){
+  var a = document.getElementById("passwords").nodeValue;
+  var b = document.getElementById("passwordss").nodeValue;
+
+  if(a!=b){
+    document.getElementById("message").innerHTML="* password are not same";
+  }
+}
+
 }
 
 

@@ -2,13 +2,33 @@ import { Component, OnInit } from '@angular/core';
 import {DriverService} from '../service/driver.service'
 import {Router} from '@angular/router';
 import { reset } from 'colors';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+
+
+
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  },
+};
+
 
 @Component({
   selector: 'app-addsetting',
   templateUrl: './addsetting.component.html',
-  styleUrls: ['./addsetting.component.css']
+  styleUrls: ['./addsetting.component.css'],
+  providers: [
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+  ]
 })
 export class AddsettingComponent implements OnInit {
+  
   
   user:any;
   date:string;
@@ -24,8 +44,12 @@ export class AddsettingComponent implements OnInit {
 
   constructor(
     private driverService : DriverService,
-    private router: Router
+    private router: Router,
+  
   ) { }
+
+
+
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem("user"));

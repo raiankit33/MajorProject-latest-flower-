@@ -4,19 +4,30 @@
 
 
 
-<form class="modal-content"   (submit)= "onAddSubmit()" method="post">
+<form class="modal-content"   (submit)= "onAddSubmit()" method="post" >
     <div class="container">
       
-      <p>Please fill Details</p>
+      <label style="color: white;"><b><h1> Item List</h1></b></label>
+      <br>
 
-      <label for="name"><b>Date  </b></label>
-      <input type="text"  required  [(ngModel)]="date" name ="date" >
+      <mat-form-field appearance="fill" >
+        <mat-label style="color: white;">Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker"  [(ngModel)]="date" name ="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+
+      <!-- <label for="name"><b>Date  </b></label>
+      <input type="text"  required  [(ngModel)]="date" name ="date" > -->
       
       <label for="name"><b>Product Code  </b></label>
       <input type="text"  required  [(ngModel)]="product_code" name ="product_code" >
   
-      <label for="email"><b>Product Name</b></label>
-      <input type="text"  required  [(ngModel)]="product_name" name ="product_name"   >
+      <label for="name"><b>Product Name</b></label>
+      <input type="text"  required  [(ngModel)]="product_name" name ="product_name"  >
+     
+      
 
       <label for="email"><b>Price </b></label>
       <input type="text"  required   [(ngModel)]="price" name ="price"  >

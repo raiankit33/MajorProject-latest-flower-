@@ -2,13 +2,14 @@
 
 
 
-
+<br>
         
 <div class="center"  >
     <h1 >Order </h1>
     </div>
-  
-    
+ <br>
+<button type="button"  routerLink="/addorder" class="btn btn-primary">Add Offline </button>
+    <br>
   <br>
   <div class="tablescroll">
   <table class="table">
@@ -27,13 +28,13 @@
         <tr style="color: red;">
           
           <th > Order Type <select name="Product code" id=Prodname class="form-control" style="width: 100px;">
-            
-            <option value="Whatsapp"></option>
+            <option value=""></option>
+            <option value="Whatsapp">Offline</option>
            
-            <option value="Web"> </option>
+            <option value="Web">online </option>
         </select></th>
           <th scope="col">Company Name</th>
-          <th scope="col">Contact Name</th>
+          <th scope="col" > Name</th>
           <th scope="col">Email Address</th>
           <th scope="col">Phone </th>
           <th scope="col">Address</th>
@@ -44,65 +45,76 @@
           
          
 
-          <th scope="col">Date</th>
+          <th scope="col" >Date</th>
           <th scope="col">Order Id</th>
           <th scope="col">Product Code</th>
           <th scope="col">Product Name</th>
           <th scope="col">Units</th>
-          <th scope="col">Current Status</th>
+          <th scope="col">Current Status
+             <select name="Product code" id=Prodname class="form-control" style="width: 100px;">
+              <option value="">order complied</option>
+              <option value="Whatsapp">In Process</option>
+              <option value="Reference">Order complied</option>
+              <option value="Web"> Out Of Stock</option>
+              <option value="Web"> Delivered</option>
+              <option value="Web"> Payment Received </option>
+              <option value="Web"> Payment Pending  </option>
+          </select>
+          </th>
           <th scope="col">Bill Amount</th>
           <th scope="col">Advance</th>
           <th scope="col">Balance</th>
-          <th scope="col">Mode of Payment</th>     
+          <th scope="col">Mode of Payment 
+             <select name="Product code" id=Prodname class="form-control" style="width: 80px;">
+              <option value=""></option>
+              <option value="Cash">Cash</option>
+              <option value="RGTS">RGTS</option>
+              <option value="NEFT"> NEFT</option>
+              <option value="Paytm"> Paytm</option>
+              
+             
+          </select> </th>  
+          <th scope="col">Action</th> 
         
         </tr>
       </thead>
       <tbody>
-        <tr>
-          
-          <th > <select name="Product code" id=Prodname class="form-control" style="width: 100px;">
-           
-            <option value="Whatsapp">Whatsapp</option>
-            
-            <option value="Web"> Web</option>
-        </select></th>
-          <td>@</td>
-          <td>@</td>
-          <td>@</td>
-          <td>@</td>
-          <td>@</td>
-  
-          
-          <td>@</td>
-          <td>@</td>
-          <td>@</td>
-          <td>@</td>
+        <tr *ngFor = "let order of ordersDetails ">
+          <td>offline</td>
+         <td>{{order.company_name}}</td>
+          <td>{{order.name}}</td>
+          <td>{{order.email_address}}</td>
+          <td>{{order.phone}}</td>
+          <td>{{order.address}}</td>
+          <td>{{order.city}}</td>
+          <td>{{order.state}}</td>
+          <td>{{order.zip}}</td>
+          <td>{{order.country}}</td>
+          <td >{{order.date}}</td>
         
-          <td>@</td>
-          <td>FP1</td>
-          <td>F1</td>
-          <td>@</td>
-          <td>@</td>
-          <th > <select name="Product code" id=Prodname class="form-control" style="width: 100px;">
-            <option value="">order complied</option>
-            <option value="Whatsapp">In Process</option>
-            <option value="Reference">Order complied</option>
-            <option value="Web"> Out Of Stock</option>
-            <option value="Web"> Delivered</option>
-            <option value="Web"> Payment Received </option>
-            <option value="Web"> Payment Pending  </option>
-        </select></th>
-          <td>@</td>
-          <td>@</td>
-          <td>@</td>
-          <th > <select name="Product code" id=Prodname class="form-control" style="width: 80px;">
-            <option value=""></option>
-            <option value="Whatsapp">Cash</option>
-            <option value="Reference">RGTS</option>
-            <option value="Web"> NEFT</option>
-            <option value="Web"> Paytm</option>
-           
-        </select></th>
+          <td>{{order.order_id}}</td>
+          <td>{{order.product_code}}</td>
+          <td>{{order.product_name}}</td>
+          <td>{{order.units}}</td>
+          <td>{{order.status}}</td>
+          <td>{{order.bill_amount}}</td>
+          <td>{{order.advance}}</td>
+          <td>{{order.balance}}</td>
+          <td>{{order.mode_of}}</td>
+        
+
+        <td>  <li class="list-inline-item">
+          <button class="btn btn-danger btn-sm rounded-0" 
+          
+         
+          (click)="deleteOrder(order._id)"
+           type="button" data-toggle="tooltip"
+          
+         
+            data-placement="top" title="Delete">
+            <i class="fa fa-trash"></i>
+          </button>
+      </li></td>
           
   
         </tr>

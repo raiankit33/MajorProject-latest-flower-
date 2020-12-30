@@ -49,6 +49,9 @@ export class CregisterComponent implements OnInit {
       return false;
     }
 
+   
+
+
     //register user
 
     this.AuthService.registerUser(user).subscribe((data: Response) => {

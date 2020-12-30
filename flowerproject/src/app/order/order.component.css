@@ -242,6 +242,7 @@
   }
    */
 
+   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
 
    .center{
      display: flex;
@@ -260,10 +261,11 @@
 }
 
 .table td,.table th{
+  font-family: 'Noto Sans JP', sans-serif;
   padding:12px 15px;
   border:1px solid #ddd;
   text-align: center;
-  font-size:16px;
+  font-size:14px;
 }
 
 .table th{
@@ -287,7 +289,8 @@
 		width: 100%;
 	}
 	.table tr{
-		margin-bottom:15px;
+    margin-bottom:15px;
+    font-family: 'Noto Sans JP', sans-serif;
 	}
 	.table td{
 		text-align: right;

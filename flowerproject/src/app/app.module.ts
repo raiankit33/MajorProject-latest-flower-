@@ -11,7 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +44,7 @@ import { from } from 'rxjs';
 
 import { EditsaleComponent } from './editsale/editsale.component';
 import { EditreceiveComponent } from './editreceive/editreceive.component';
+import { AddorderComponent } from './addorder/addorder.component';
 
 
 
@@ -77,6 +80,9 @@ import { EditreceiveComponent } from './editreceive/editreceive.component';
   
   
     EditreceiveComponent,
+  
+  
+    AddorderComponent,
    
     
   ],
@@ -86,6 +92,9 @@ import { EditreceiveComponent } from './editreceive/editreceive.component';
     AppRoutingModule,
     HttpClientModule,
     MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
     
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({

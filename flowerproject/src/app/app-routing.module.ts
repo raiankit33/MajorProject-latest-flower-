@@ -24,6 +24,7 @@ import { UpdatesettingComponent } from './updatesetting/updatesetting.component'
 
 import { EditsaleComponent } from './editsale/editsale.component';
 import { EditreceiveComponent } from './editreceive/editreceive.component';
+import { AddorderComponent } from './addorder/addorder.component';
 
 const routes: Routes = [
 
@@ -48,6 +49,7 @@ const routes: Routes = [
   {path:'additem',component:AdditemComponent},
   {path:'upsetting',component:UpdatesettingComponent},
   {path:'editreceive',component:EditreceiveComponent},
+  {path:'addorder',component:AddorderComponent},
   
 
   {path:'editsale',component:EditsaleComponent}

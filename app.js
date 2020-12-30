@@ -32,6 +32,7 @@ const drivers = require("./routes/drivers");
 const documentRouter = require('./routes/routes'); 
 const items = require('./routes/items'); 
 const sales = require('./routes/sales'); 
+const orders = require('./routes/orders'); 
 
 // CORS Middleware
 app.use(cors());
@@ -55,6 +56,7 @@ app.use("/drivers", drivers);
 app.use('/documents/', documentRouter);
 app.use('/items/',items);
 app.use('/sales/',sales);
+app.use('/orders/',orders);
 
 app.get("/", (req, res) => {
   res.send("Invalid Endpoint");
