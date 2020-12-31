@@ -97,16 +97,17 @@
                 <p>Fill all form field to go to next step</p>
                 <form id="msform" (submit)="onAddSubmit()" method="post"  >
                    
-                    <ul id="progressbar">
-                        <li class="active" id="account"><strong>Contact Details</strong></li>
-                        <li id="personal"><strong>Order Details</strong></li>
-                        <li id="payment"><strong>Payment Details</strong></li>
-                        <li id="confirm"><strong>Finish</strong></li>
+                    <ul id="progressbar"  > 
+                        <li  class="active" id="personal"><strong> Personal  Details</strong></li>
+                        <li class="active"  id="account"><strong>Order Details</strong></li>
+                        
+                        <li  class="active" id="payment"><strong>Payment Details</strong></li>
+                        <li  class="active" id="confirm"><strong>Finish</strong></li>
                     </ul>
-                    <div class="progress">
+                    <!-- <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div> <br> 
-                    <fieldset>
+                    </div> <br>  -->
+                    <fieldset  *ngIf="step == 1">
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
@@ -118,17 +119,17 @@
                             </div> <label class="fieldlabels">Company Name: *</label> <input type="text" [(ngModel)]="company_name" name ="company_name" placeholder="Company Name" />
                              <label class="fieldlabels">Name: *</label> <input type="text"  [(ngModel)]="name" name ="name" placeholder="Name" />
                               <label class="fieldlabels">Email Address: *</label> <input type="email"   [(ngModel)]="email_address" name ="email_address" placeholder="Email Id" />
-                               <label class="fieldlabels">Phone No: *</label> <input type="number"  [(ngModel)]="phone" name ="phone"   placeholder="Phone" />
+                               <label class="fieldlabels">Phone No: *</label> <input type="tel" [(ngModel)]="phone" name ="phone"   placeholder="Phone" />
                                <label class="fieldlabels">Address: *</label> <input type="text"   [(ngModel)]="address" name ="address" placeholder="Address" />
                                <label class="fieldlabels">City: *</label> <input type="text"   [(ngModel)]="city" name ="city" placeholder="City" />
                                <label class="fieldlabels">State: *</label> <input type="text"  [(ngModel)]="state" name ="state" placeholder="State " />
-                               <label class="fieldlabels">Zip: *</label> <input type="number"   [(ngModel)]="zip" name ="zip" placeholder="Zip Code" />
+                               <label class="fieldlabels">Zip: *</label> <input type="tel"   [(ngModel)]="zip" name ="zip" placeholder="Zip Code" />
                                <label class="fieldlabels">Country: *</label> <input type="text"  [(ngModel)]="country" name ="country" placeholder="Country" />
 
                         </div> 
-                        <input type="button" name="next" class="next action-button" value="Next" />
+                        <input type="button" (click)="next1()" name="next" class="next action-button" value="Next" />
                     </fieldset>
-                    <fieldset>
+                    <fieldset *ngIf="step == 2">
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
@@ -137,13 +138,20 @@
                                 <div class="col-5">
                                     <h2 class="steps">Step 2 - 4</h2>
                                 </div>
-                            </div> <label class="fieldlabels">Date: *</label> <input type="text"  [(ngModel)]="date" name ="date"  placeholder="Date" />
+                                <mat-form-field appearance="fill" >
+                                    <mat-label style="color: white;">Choose a date</mat-label>
+                                    <input matInput [matDatepicker]="picker"  [(ngModel)]="date" name ="date">
+                                    <mat-datepicker-toggle matSuffix  [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker ></mat-datepicker>
+                                  </mat-form-field>
+                            </div> 
+                            <!-- <label class="fieldlabels">Date: *</label> <input type="text"  [(ngModel)]="date" name ="date"  placeholder="Date" /> -->
                              <label class="fieldlabels">Order ID: *</label> <input type="text"  [(ngModel)]="order_id" name ="order_id" placeholder="Order Id" />
                               <label class="fieldlabels">Product Code.: *</label> <input type="text"  [(ngModel)]="product_code" name ="product_code" placeholder="Product Code" /> 
                               <label class="fieldlabels">Product Name : *</label> <input type="text"   [(ngModel)]="product_name" name ="product_name" placeholder="Product Name" />
                               <label class="fieldlabels">Units : *</label> <input type="text"  [(ngModel)]="units" name ="units" placeholder="unit" />
                               <label class="fieldlabels">Current Status: *</label>
-                              <select name="Product code" id=Prodname class="form-control"  [(ngModel)]="status" name ="status" style="width: 100px;">
+                              <select name="Product code" id=Prodname class="form-control"  [(ngModel)]="status" name ="status" style="width: 200px;">
                                 <option value="">order complied</option>
                                 <option value="In process">In Process</option>
                                 <option value="Order Complied" class="btn btn-primary">Order complied</option>
@@ -153,9 +161,9 @@
                                 <option value="Payment Pending" > Payment Pending  </option>
                             </select>
 
-                        </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </div> <input type="button"  (click)="next1()" name="next" class="next action-button" value="Next" /> <input type="button" name="previous"   (click)="previous()" class="previous action-button-previous" value="Previous" />
                     </fieldset>
-                    <fieldset>
+                    <fieldset *ngIf="step == 3">
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
@@ -169,7 +177,7 @@
                             <label class="fieldlabels">Advance : *</label> <input type="text"   [(ngModel)]="advance" name ="advance" placeholder="Advance" />
                             <label class="fieldlabels">Balance : *</label> <input type="text"  [(ngModel)]="balance" name ="balance" placeholder="Balance" />
                                 <label class="fieldlabels">Mode of Payment: *</label> 
-                                <select name="Product code" id=Prodname class="form-control"  [(ngModel)]="mode_of" name ="mode_of" style="width: 80px;">
+                                <select name="Product code" id=Prodname class="form-control"  [(ngModel)]="mode_of" name ="mode_of" style="width: 200px;">
                                  <option value=""></option>
                                  <option value="Cash">Cash</option>
                                  <option value="RGTS">RGTS</option>
@@ -180,34 +188,14 @@
                              </select> 
                         </div>
                         <!-- <input type="button" name="next" class="next action-button" value="Submit" />  -->
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="previous" (click)="previous()" class="previous action-button-previous" value="Previous" />
                         <div class="clearfix">
                             <button type="submit"  id="submitDetails"  class="btn"  >Submit </button>
                              
                         
                           </div>
                     </fieldset>
-                     <fieldset>
-                        <div class="form-card">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h2 class="fs-title">Finish:</h2>
-                                </div>
-                                <div class="col-5">
-                                    <h2 class="steps">Step 4 - 4</h2>
-                                </div>
-                            </div> <br><br>
-                            <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
-                            <div class="row justify-content-center">
-                                <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
-                            </div> <br><br>
-                            <div class="row justify-content-center">
-                                <div class="col-7 text-center">
-                                    <h5 class="purple-text text-center">You Have Successfully submitted your order</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset> 
+                   
                 </form>
             </div>
         </div>

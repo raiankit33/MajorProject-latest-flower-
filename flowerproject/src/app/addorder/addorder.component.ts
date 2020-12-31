@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {DriverService} from '../service/driver.service'
 import {Router} from '@angular/router';
+import { document } from '../../assets/order.js';
 
+
+declare var  setProgressBar: any;
 
 
 @Component({
@@ -10,10 +13,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./addorder.component.css']
 })
 export class AddorderComponent implements OnInit {
+  step: any = 1;
+
   user:any;
    
-
-
   company_name: string;
   name: string;
   email_address: string;
@@ -40,11 +43,19 @@ export class AddorderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem("user"));
     
+    this.user = JSON.parse(localStorage.getItem("user"));
+     
   }
 
-    
+  next1(){
+    this.step = this.step + 1 ;
+  }
+ 
+  previous()
+{
+  this.step = this.step - 1 ;
+}    
   onAddSubmit(){
 
     const order = {
