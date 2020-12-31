@@ -22,8 +22,8 @@ validateEmail(email){
 }
 
 validatePassword(password){
-  var a = document.getElementById("passwords").nodeValue;
-  var b = document.getElementById("passwordss").nodeValue;
+  var a = "password";
+  var b = "passwords";
 
   if(a!=b){
     document.getElementById("message").innerHTML="* password are not same";

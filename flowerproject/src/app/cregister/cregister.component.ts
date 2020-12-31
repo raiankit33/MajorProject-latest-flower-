@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 
+
 @Component({
   selector: 'app-cregister',
   templateUrl: './cregister.component.html',
@@ -13,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CregisterComponent implements OnInit {
 
   name: String;
-  email: String;
+   email:string;
   username: String;
   password: String;
 
@@ -25,6 +26,8 @@ export class CregisterComponent implements OnInit {
     private router: Router
 
   ) { }
+
+
 
   ngOnInit(): void {
   }
@@ -49,7 +52,7 @@ export class CregisterComponent implements OnInit {
       return false;
     }
 
-   
+    
 
 
     //register user

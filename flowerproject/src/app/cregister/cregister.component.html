@@ -7,12 +7,13 @@
 Registration form</div>
 <form  (submit)= "onRegisterSubmit()" >
     <div class="field">
-      <input type="text" required [(ngModel)]="name"name="name" >
+      <input type="text" required [(ngModel)]="name" name="name"  >
       <label>Full Name</label>
     </div>
 
     <div class="field">
-        <input type="email" required  [(ngModel)]="email"name="email">
+        <input type="email"  required  [(ngModel)]="email" name="email"  >
+      
         <label>Email Id</label>
       </div>
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DriverService} from '../service/driver.service'
 import {Router} from '@angular/router';
 import { document } from '../../assets/order.js';
+import { ToastrService } from 'ngx-toastr';
 
 
 declare var  setProgressBar: any;
@@ -39,7 +40,8 @@ export class AddorderComponent implements OnInit {
 
   constructor(
     private driverService : DriverService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -84,8 +86,17 @@ export class AddorderComponent implements OnInit {
     }
  console.log(order);
     this.driverService.registerOrder(order).subscribe( res=> {
+      if(res){
+      
+        this.toastr.success('data insert successfully','Success');
+         this.router.navigate(['/order']);
+
+      }else{
+        this.toastr.error('error','Oops');
+      this.router.navigate(['/addorder']);
+      }
       console.log(res);
-      this.router.navigate(['/order']);
+      // this.router.navigate(['/order']);
     })
      
       

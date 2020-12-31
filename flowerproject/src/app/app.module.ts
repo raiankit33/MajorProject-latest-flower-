@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ValidateService }  from './service/validate.service';
 import { AuthService }  from './service/auth.service';
 import {SharedData} from './service/sharedData.service';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 import {DriverService} from '../../src/app/service/driver.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -89,6 +90,7 @@ import { AddorderComponent } from './addorder/addorder.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     MatDatepickerModule,

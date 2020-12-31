@@ -260,12 +260,13 @@
 	border-collapse: collapse;
 }
 
+
 .table td,.table th{
   font-family: 'Noto Sans JP', sans-serif;
   padding:12px 15px;
   border:1px solid #ddd;
   text-align: center;
-  font-size:14px;
+  font-size:15px;
 }
 
 .table th{
