@@ -33,6 +33,9 @@ const documentRouter = require('./routes/routes');
 const items = require('./routes/items'); 
 const sales = require('./routes/sales'); 
 const orders = require('./routes/orders'); 
+const products = require('./routes/products'); 
+const books = require('./routes/books'); 
+
 
 // CORS Middleware
 app.use(cors());
@@ -48,7 +51,8 @@ app.use(passport.session());
 require("./config/passport")(passport);
 
 // Set Static Folders
-app.use(express.static(path.join(__dirname, "public")));
+// app.use('/static',express.static('/public'));
+app.use(express.static(path.join(__dirname, "./public")));
 
 // Routes
 app.use("/users", users);
@@ -57,6 +61,9 @@ app.use('/documents/', documentRouter);
 app.use('/items/',items);
 app.use('/sales/',sales);
 app.use('/orders/',orders);
+app.use('/products/',products);
+app.use('/books/',books);
+
 
 app.get("/", (req, res) => {
   res.send("Invalid Endpoint");

@@ -1,0 +1,114 @@
+<app-navbar2></app-navbar2>
+
+
+
+
+<form class="modal-content" (submit)= "onAddSubmit()" [formGroup]="form"  enctype="multipart/form-data"  method="post">
+    <div class="container">
+      
+      <p>Please fill Details</p>
+      
+
+  
+      <div class="form-group">
+      <label for="name"><b>Product Name </b></label>
+      <input type="text"  required   [(ngModel)]="product_name"  formControlName="product_name"  name ="product_name"   [ngClass]="
+      { 'is-invalid': form.get('product_name').touched && form.get('product_name').invalid}"   >
+      <div class="invalid-feedback">
+        <div > Product Name is required</div>
+      </div>
+</div>
+
+
+<div class="form-group">
+      <label ><b>Product code</b></label>
+      <input type="text"  required   [(ngModel)]="product_code"  formControlName="product_code"   name ="product_code"  [ngClass]="
+      { 'is-invalid': form.get('product_code').touched && form.get('product_code').invalid}"    >
+      <div class="invalid-feedback">
+        <div > Code is required</div>
+      </div>
+</div>
+
+      
+      <div class="form-group">
+      <label ><b>Price </b></label>
+      <input type="text"  required    [(ngModel)]="price"  formControlName="price" name ="price"  [ngClass]="
+      { 'is-invalid': form.get('price').touched && form.get('price').invalid}"    >
+      <div class="invalid-feedback">
+        <div > Price is required</div>
+      </div>
+      </div>
+
+      <label for="name"><b>Image</b></label>
+      <input type="text"  required   [(ngModel)]="image"  name ="image" formControlName="image"  name ="image"  >
+    
+
+  
+      <div class="clearfix">
+        <button type="submit"  id="submitDetails"  class="btn"  >submit</button>
+         
+    
+      </div>
+        
+    </div>
+   
+  
+  </form>
+
+
+  <div class="card ml-4 mr-4">
+    <div class="card-header">
+   Product Details
+    </div>
+    <div class="card-body">
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Product Code</th>
+              <th scope="col">Price</th>
+              <th scope="col">Product Image</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of itemsDetails | paginate: { itemsPerPage: 5, currentPage: p }   index as i ">
+              <th scope="row">{{i+1}}</th>
+              <td>{{item.product_name}}</td>
+              <td>{{item.product_code}}</td>
+            
+              <td>{{item.price}}</td>
+              <td>{{item.image}}</td>
+              <td>
+                <!-- Call to action buttons -->
+                <ul class="list-inline m-0">
+                    
+                    <li class="list-inline-item">
+                        <button class="btn btn-success btn-sm rounded-0"   type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                    </li>
+                    <li class="list-inline-item">
+                        <button class="btn btn-danger btn-sm rounded-0" 
+                       
+                      
+                         type="button" data-toggle="tooltip"
+                         (click)="deleteDriver(item._id)"
+                        (cancel)="cancelClicked = true"
+                          data-placement="top" title="Delete">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                    </li>
+                </ul>
+            </td>
+            </tr>
+        
+          </tbody>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+<input type=" text"  (change)="hetItem($event.target.value)">

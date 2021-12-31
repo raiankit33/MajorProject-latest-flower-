@@ -2,15 +2,19 @@ const mongoose = require("mongoose");
 const config = require("../config/database");
 
 const ItemSchema = mongoose.Schema({
-  initial_quantity: {
+  product_name: {
     type: String,
     required: true,
   },
-  alert_quantity: {
+  product_code: {
     type: String,
     required: true,
   },
-  remarks: {
+  price: {
+    type: String,
+    required: true,
+  },
+  image: {
     type: String,
     required: true,
   },
@@ -38,8 +42,8 @@ module.exports.addItem = (newItem, callback) => {
 
 // GET Items
 module.exports.getItems = (user, callback) => {
-  let query = { created_by: user };
-  Item.find(query, callback);
+  // let query = { created_by: user };
+  Item.find( callback);
 };
 
 // Update Items

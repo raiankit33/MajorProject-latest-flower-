@@ -1,0 +1,88 @@
+<app-navbar2>
+    
+</app-navbar2>
+<br>
+<div class="container">
+
+  
+  <div class="content">
+    <form  (submit)= "onAddSubmit()" method="post">
+      <div class="user-details">
+
+
+
+
+        <div class="input-box">
+          <span class="details">* Date</span>
+          <input type="date"  required  [(ngModel)]="date" name ="date" >
+         
+        </div>
+        <div class="input-box">
+          <span class="details">* Product Code</span>
+          <input type="text"  required  [(ngModel)]="product_code" name ="product_code" >
+          
+          
+        </div>
+
+        <div class="input-box">
+          <span class="details">* Product Name</span>
+          <input type="text"  required  [(ngModel)]="product_name" name ="product_name"  >
+       
+       
+        </div>
+
+        <div class="input-box">
+          <span class="details">* Price</span>
+          <input type="text"  required   [(ngModel)]="price" name ="price"  >
+         
+        </div>
+
+        <div class="input-box">
+          <span class="details">* Units</span>
+     
+      <input type="text"  required  [(ngModel)]="units" name ="units"  >
+         
+        </div>
+
+
+        <div class="input-box">
+          <span class="details">* Initial Quantity</span>
+         
+          <input type="text"  required   [(ngModel)]="initial_quantity" name ="initial_quantity"  >
+         
+        </div>
+
+
+        <div class="input-box">
+          <span class="details">* Alert Level Quantity </span>
+         
+          <input type="text"  required   [(ngModel)]="alert_quantity" name ="alert_quantity"  >
+         
+        </div>
+
+
+        <div class="input-box">
+          <span class="details">* Image</span>
+    
+          <input type="text"  required   [(ngModel)]="image" name ="image"  >
+         
+        </div>
+
+        <!-- <div class="input-box">
+          <span class="details">* Receive Quantity</span>
+          
+          <input type="text"  required   [(ngModel)]="receive_item" name ="receive_item"  >  
+         
+        </div> -->
+
+
+        <div class="button">
+          <input type="submit"  value="Add">
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+

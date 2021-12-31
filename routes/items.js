@@ -7,9 +7,10 @@ router.post("/add", (req, res, next) => {
   // res.send("Add Items");
 
   let newItem = new Item({
-    initial_quantity: req.body.initial_quantity,
-    alert_quantity: req.body.alert_quantity,
-    remarks: req.body.remarks,
+    product_name: req.body.product_name,
+    product_code: req.body.product_code,
+    price: req.body.price,
+    image: req.body.image,
     created_by: req.body.created_by,
   });
 
@@ -29,7 +30,7 @@ router.get("/getItems", (req, res, next) => {
     if (err) {
       res.json({ success: false, msg: err });
     } else {
-      console.log('item');
+     
       res.json({ success: true, count: items.length, data: items });
     }
   });
@@ -40,7 +41,7 @@ router.get("/read/:id", (req, res, next) => {
     if (err) {
       res.json({ success: false, msg: err });
     } else {
-      res.json({ success: true, item });
+      res.json({ success: true, data :item });
     }
   });
 });

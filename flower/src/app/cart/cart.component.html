@@ -1,0 +1,231 @@
+ <app-navbar></app-navbar>
+
+
+<div class="wrapper">
+
+  
+   
+     
+    <div class="content"  *ngIf="step == 1">
+      <br>
+<!-- cart -->
+
+
+<h1>Shopping Cart</h1>
+<br><br>
+<div class="cart" *ngIf="userObj" >
+
+  <div class="products">
+
+    <div class="product">
+
+      <!-- <img src="../../assets/f1.jfif"> -->
+      <img src="{{userObj.image}}.jpg" style="width: 100%;" alt="livres">
+
+      <div class="product-info">
+
+        <h3 class="product-name"> Name :{{userObj.product_name}}</h3>
+
+        <h4 class="product-price"> Code :{{userObj.product_code}}</h4>
+
+        <h4 class="product-offer">Price :{{userObj.price}}</h4>
+
+       
+          <div class="quantity">
+            <button  type="button" (click)="minus()" ><i class="fa fa-minus" aria-hidden="true"></i>
+             
+            </button>
+            <input type="text"  style="width: 60px;" [value]="quantity">
+            <button  type="button" (click)="plus()"><i class="fa fa-plus" aria-hidden="true"></i>
+             
+            </button>
+          </div>
+
+        <p class="product-remove">
+
+          <i class="fa fa-trash" aria-hidden="true"></i>
+
+          <span class="remove" (click)="remove()" >Remove</span>
+
+        </p>
+
+      </div>
+
+    </div>
+
+   
+
+  </div>
+
+  <div class="cart-total">
+
+    <p>
+
+      <span>Total Price</span>
+
+      <span>₹ {{userObj.price * quantity }}</span>
+
+    </p>
+
+    <p>
+
+      <span>Number of Items</span>
+
+      <span>{{quantity}}</span>
+
+    </p>
+
+
+    <a (click)="next1()">Proceed to Checkout</a>
+
+  </div>
+
+</div>
+
+<br>
+<!-- cart -->
+      
+    </div>
+ 
+
+
+ 
+   
+    <div class="content" *ngIf="step == 2">
+      <!-- checkout form  -->
+      
+<h2> Checkout Form</h2>
+<div class="row">
+    <div class="col-75">
+        <div class="container">
+            <form  (submit)="onAddSubmit()" method="post"  >
+                <div class="row">
+                    <div class="col-50">
+                        <h3>Billing Address</h3>
+                        <label for="fname"><i class="fa fa-user"></i> Full Name </label>
+                        <input type="text"  name="fullname" for value="{{ user.name }} "  required>
+                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <input type="text"  name="email" value="{{ user.email }} " required>
+                        <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                        <input type="text"  name="address" [(ngModel)]="address"  required>
+                        <label for="adr"><i class="fa fa-address-card-o"></i> Phone No</label>
+                        <input type="text"  name="phone_no" [(ngModel)]="phone_no"   required>
+                        <label for="city"><i class="fa fa-institution"></i> City</label>
+                        <input type="text"  name="city" [(ngModel)]="city"    required>
+
+                        <div class="row">
+                            <div class="col-50">
+                                <label for="state">State</label>
+                                <input type="text"  [(ngModel)]="state"  name="state"  required>
+                            </div>
+                            <div class="col-50">
+                                <label for="zip">Zip</label>
+                                <input type="text"  name="zip" [(ngModel)]="zip"   required>
+                            </div>
+                            <div class="col-50">
+                              <label for="zip">Country</label>
+                              <input type="text"  name="country" [(ngModel)]="country"   required>
+                          </div>
+                         
+                        </div>
+                    </div>
+
+                  
+                </div>
+                <label>
+                <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                </label>
+                <input type="submit"   value="Add Details" class="btn">
+                <input type="submit"  (click)="next1()" *ngIf="hide" value="Continue to checkout" class="btn">
+            </form>
+        </div>
+    </div>
+  <br>
+  <br>
+ 
+
+      <!-- Checkout form -->
+    </div>
+  </div>
+ 
+ 
+
+
+ 
+   
+    <br>
+    <br>
+    <div class="content" *ngIf="step == 3">
+     
+<!-- final -->
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">product code</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{userObj.product_name}}</td>
+      <td>{{userObj.product_code}}</td>
+      <td>{{quantity}}</td>
+      <td>{{userObj.price * quantity}}</td>
+    </tr>
+   
+   
+  </tbody>
+</table>
+ 
+
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">{{userObj.product_code}}</h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{userObj.product_name}}</h1>
+        <div class="flex mb-4">
+          <a class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1">Description</a>
+        
+        </div>
+        <p class="leading-relaxed mb-4">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean.</p>
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">Quantity</span>
+          <span class="ml-auto text-gray-900">{{quantity}}</span>
+        </div>
+      
+        <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+          <span class="text-gray-500">Address</span>
+          <span class="ml-auto text-gray-900">{{address}}</span>
+        </div>
+        <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+          <span class="text-gray-500">Phone No</span>
+          <span class="ml-auto text-gray-900">{{phone_no}}</span>
+        </div>
+        
+        <div class="flex">
+          <span class="title-font font-medium text-2xl text-gray-900">${{userObj.price * quantity}}</span>
+         
+      
+        </div>
+      </div>
+      <img  alt="ecommerce" class=" rounded ml-5" style="width: 350px;" src="{{userObj.image}}.jpg">
+    </div>
+  </div>
+  <button class=" btn btn-primary" (click)="checkout(userObj.price)" > Confirm Order </button>
+</section>
+<!-- <button class=" btn btn-primary" (click)="checkout(price)" > Confirm Order </button> -->
+<!-- final  -->
+
+
+    </div>
+    <br>
+ 
+<br><br><br><br><br>
+</div> 

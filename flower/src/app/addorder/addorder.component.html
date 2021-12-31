@@ -1,0 +1,203 @@
+<app-navbar2></app-navbar2>
+
+
+
+
+<!-- <form class="modal-content"  (submit)="onAddSubmit()"   method="post">
+    <div class="container">
+      
+        <label style="color: white;"><b><h1> Contact Details</h1></b></label>
+        <br>
+
+      <label for="name"><b>Company Name  </b></label>
+      <input type="text"  required   [(ngModel)]="company_name" name ="company_name" >
+      
+      <label for="name"><b>Name  </b></label>
+      <input type="text"  required  [(ngModel)]="name" name ="name" >
+  
+      <label for="email"><b>Email Address</b></label>
+      <input type="text"  required   [(ngModel)]="email_address" name ="email_address"   >
+
+      <label for="email"><b>Phone </b></label>
+      <input type="text"  required   [(ngModel)]="phone" name ="phone"  >
+  
+      <label for="email"><b>Address</b></label>
+      <input type="text"  required  [(ngModel)]="address" name ="address"  >
+
+      
+      <label for="email"><b>City </b></label>
+      <input type="text"  required    [(ngModel)]="city" name ="city"  >
+
+      <label for="email"><b>State </b></label>
+      <input type="text"  required   [(ngModel)]="state" name ="state"  >
+
+      <label for="email"><b>Zip Code </b></label>
+      <input type="text"  required   [(ngModel)]="zip" name ="zip"   >
+
+
+      <label for="email"><b>Country </b></label>
+      <input type="text"  required   [(ngModel)]="country" name ="country"  >
+
+      <label style="color: white;"><b><h1>Order Details</h1></b></label>
+      <br>
+
+      <label for="email"><b>Date </b></label>
+      <input type="text"  required  [(ngModel)]="date" name ="date"   >
+
+      <label for="email"><b>Order ID </b></label>
+      <input type="text"  required   [(ngModel)]="order_id" name ="order_id"  >
+
+
+      <label for="email"><b>Product Code </b></label>
+      <input type="text"  required   [(ngModel)]="product_code" name ="product_code"  >
+
+      <label for="email"><b>Prduct Name</b></label>
+      <input type="text"  required   [(ngModel)]="product_name" name ="product_name"  >
+
+      <label for="email"><b>Units</b></label>
+      <input type="text"  required   [(ngModel)]="units" name ="units"  >
+
+      <label style="color: white;"><b><h1>Payment Details</h1></b></label>
+      <br>
+
+      <label for="email"><b>Bill Amount</b></label>
+      <input type="text"  required  [(ngModel)]="bill_amount" name ="bill_amount"     >
+
+      <label for="email"><b>Advance </b></label>
+      <input type="text"  required   [(ngModel)]="advance" name ="advance"   >
+
+      <label for="email"><b>Balance </b></label>
+      <input type="text"  required    [(ngModel)]="balance" name ="balance"   >
+
+
+
+
+     
+      
+  
+      <div class="clearfix">
+        <button type="submit"  id="submitDetails"  class="btn"  >Update </button>
+         
+    
+      </div>
+        
+    </div>
+    <br>
+  
+  </form>
+   -->
+
+
+
+   <div class="container-fluid" >
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3" style="width: 800px; margin-left: 200px;">
+                <h2 id="heading" >Order Details</h2>
+                <p>Fill all form field to go to next step</p>
+                <form id="msform" #userForm="ngForm" (submit)="onAddSubmit()" method="post"  >
+                   
+                    <ul id="progressbar"  > 
+                        <li  class="active" id="personal"><strong> Personal  Details</strong></li>
+                        <li class="active"  id="account"><strong>Order Details</strong></li>
+                        
+                        <li  class="active" id="payment"><strong>Payment Details</strong></li>
+                        <li  class="active" id="confirm"><strong>Finish</strong></li>
+                    </ul>
+                    <!-- <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div> <br>  -->
+                    <fieldset  *ngIf="step == 1">
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Account Information:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 1 - 4</h2>
+                                </div>
+                            </div> <label class="fieldlabels">Company Name: *</label> <input type="text" [(ngModel)]="company_name" name ="company_name" placeholder="Company Name" />
+                             <label class="fieldlabels">Name: *</label> <input type="text"  [(ngModel)]="name" name ="name" placeholder="Name" />
+                              <label class="fieldlabels">Email Address: *</label> <input type="email"   [(ngModel)]="email_address" name ="email_address" placeholder="Email Id" />
+                               <label class="fieldlabels">Phone No: *</label> <input type="tel" [(ngModel)]="phone" name ="phone"   placeholder="Phone" />
+                               <label class="fieldlabels">Address: *</label> <input type="text"   [(ngModel)]="address" name ="address" placeholder="Address" />
+                               <label class="fieldlabels">City: *</label> <input type="text"   [(ngModel)]="city" name ="city" placeholder="City" />
+                               <label class="fieldlabels">State: *</label> <input type="text"  [(ngModel)]="state" name ="state" placeholder="State " />
+                               <label class="fieldlabels">Zip: *</label> <input type="tel"   [(ngModel)]="zip" name ="zip" placeholder="Zip Code" />
+                               <label class="fieldlabels">Country: *</label> <input type="text"  [(ngModel)]="country" name ="country" placeholder="Country" />
+
+                        </div> 
+                        <input type="button" [disabled]="userForm.invalid" (click)="next1()" name="next" class="next action-button" value="Next" />
+                    </fieldset>
+                    <fieldset *ngIf="step == 2">
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Order Details:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 2 - 4</h2>
+                                </div>
+                                <!-- <mat-form-field appearance="fill" >
+                                    <mat-label style="color: white;">Choose a date</mat-label>
+                                    <input matInput [matDatepicker]="picker"  [(ngModel)]="date" name ="date">
+                                    <mat-datepicker-toggle matSuffix  [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker ></mat-datepicker>
+                                  </mat-form-field> -->
+                            </div> 
+                             <label class="fieldlabels">Date: *</label> <input type="date"  [(ngModel)]="date" name ="date"  placeholder="Date" /> 
+                             <label class="fieldlabels">Order ID: *</label> <input type="text"  [(ngModel)]="order_id" name ="order_id" placeholder="Order Id" />
+                              <label class="fieldlabels">Product Code.: *</label> <input type="text"  [(ngModel)]="product_code" name ="product_code" placeholder="Product Code" /> 
+                              <label class="fieldlabels">Product Name : *</label> <input type="text"   [(ngModel)]="product_name" name ="product_name" placeholder="Product Name" />
+                              <label class="fieldlabels">Units : *</label> <input type="text"  [(ngModel)]="units" name ="units" placeholder="unit" />
+                              <label class="fieldlabels">Current Status: *</label>
+                              <select name="Product code" id=Prodname class="form-control"  [(ngModel)]="status" name ="status" style="width: 200px;">
+                                <option value="">order complied</option>
+                                <option value="In process">In Process</option>
+                                <option value="Order Complied" class="btn btn-primary">Order complied</option>
+                                <option value="Out of Stock"> Out Of Stock</option>
+                                <option value="Delivered"> Delivered</option>
+                                <option value="Payment Received" > Payment Received </option>
+                                <option value="Payment Pending" > Payment Pending  </option>
+                            </select>
+
+                        </div> <input type="button"  (click)="next1()" name="next" class="next action-button" value="Next" /> <input type="button" name="previous"   (click)="previous()" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+                    <fieldset *ngIf="step == 3">
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">payment Details:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 3 - 4</h2>
+                                </div>
+                            </div> 
+                            <label class="fieldlabels">Bill Amount : *</label> <input type="text"  [(ngModel)]="bill_amount" name ="bill_amount" placeholder="Bill Amount" />
+                            <label class="fieldlabels">Advance : *</label> <input type="text"   [(ngModel)]="advance" name ="advance" placeholder="Advance" />
+                           
+                                <label class="fieldlabels">Mode of Payment: *</label> 
+                                <select name="Product code" id=Prodname class="form-control"  [(ngModel)]="mode_of" name ="mode_of" style="width: 200px;">
+                                 <option value=""></option>
+                                 <option value="Cash">Cash</option>
+                                 <option value="RGTS">RGTS</option>
+                                 <option value="NEFT"> NEFT</option>
+                                 <option value="Paytm"> Paytm</option>
+                                 
+                                
+                             </select> 
+                        </div>
+                        <!-- <input type="button" name="next" class="next action-button" value="Submit" />  -->
+                        <input type="button" name="previous" (click)="previous()" class="previous action-button-previous" value="Previous" />
+                        <div class="clearfix">
+                            <button type="submit" [disabled]="!userForm.valid"  id="submitDetails"  class="btn"  >Submit </button>
+                             
+                        
+                          </div>
+                    </fieldset>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 

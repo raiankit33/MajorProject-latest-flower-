@@ -1,0 +1,65 @@
+<app-navbar2></app-navbar2>
+
+
+
+  <div class="" style="background-color: #eee; height: 750px;">
+    <div class="center">
+   <h1 style="margin-left: 800px;"> SALES  </h1>
+   </div>
+   
+   
+   <div class="card shadow ml-4 mr-4 rounded" >
+     <h5 class="card-header" style="background-color: white;">
+       <div class="row"><input type="text" class="col-md-2 ml-5" [(ngModel)]="filterString" placeholder="Search by product name">
+       
+   
+        
+       </div>
+     </h5>
+     <div class="card-body">
+      <table class="table" >
+        <thead >
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Product Code</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Units</th>
+            
+            
+            
+            <th scope="col">Price</th>
+           
+            <th scope="col">Sold Quantity</th>
+            <th scope="col">Action</th>
+           
+           
+          </tr>
+        </thead>
+        <tbody  >
+          <tr  *ngFor = "let driver of driversDetails| filter:filterString | paginate: { itemsPerPage: 6, currentPage: p }  "  >
+            <td>{{driver.date}}</td>
+            <td>{{driver.product_code}}</td>
+            <td>{{driver.product_name}}</td>
+            <td>{{driver.units}}</td>
+            
+            <td>Rs {{driver.price}}</td>
+            
+            <td>{{driver.sold_quantity}}</td>
+            <td>
+              <li class="list-inline-item">
+                <button class="btn btn-success btn-sm rounded-0" (click)="editDriver(driver)" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+            </li>
+         
+           
+            
+            </td>
+          </tr>
+         
+        </tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </table>
+     </div>
+   </div>
+     
+     
+   </div>

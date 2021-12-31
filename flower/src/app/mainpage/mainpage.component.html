@@ -1,0 +1,128 @@
+<app-navbar></app-navbar>
+
+
+
+ <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="width: 100%; height:500px">
+      <img class="d-block w-100" src="../../assets/upload/slider6.png" alt="First slide" style="height:600px">
+      </div>
+      <div class="carousel-item" style="width: 100%; height:500px">
+      <img class="d-block w-100" src="../../assets/slider2.jpg" alt="Second slide" style="height:600px">
+      </div>
+      <div class="carousel-item" style="width: 100%; height:500px">
+      <img class="d-block w-100" src="../../assets/slider3.jpg" alt="Third slide" style="height:600px">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    </div>  
+ 
+<br> 
+<br>
+
+ 
+
+<!-- Flickity HTML init -->
+
+
+
+
+
+<div class="center">
+<div class = "products">
+  <div class = "container">
+      <h1 class = "lg-title">Special Flowers With Offers</h1>
+      
+      <form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+          <input class="form-control form-control-navbar" type="search" [(ngModel)]="name" name="Search" (ngModelChange)="SearchI()"  placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-navbar" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class = "product-items">
+          <!-- single product -->
+          <div class = "product" *ngFor ="let item of itemsDetails | filter:name ">
+              <div class = "product-content">
+                  <div class = "product-img">
+                      <!-- <img src = "../../assets/f1.jfif" alt = "product image"> -->
+                      <img src="{{item.image}}.jpg" style="width: 100%;" alt="livres">
+                  </div>
+                  <div class = "product-btns">
+                      <button type = "button" class = "btn-cart" (click)="cart(item) "> add to cart
+                          <span><i class = "fas fa-plus"></i></span>
+                      </button>
+                    
+                  </div>
+              </div>
+             
+              <div class = "product-info">
+                  <div class = "product-info-top">
+                      <h2 class = "sm-title">Code -{{item.product_code}}</h2>
+                      <div class = "rating">
+                          <span><i class = "fas fa-star"></i></span>
+                          <span><i class = "fas fa-star"></i></span>
+                          <span><i class = "fas fa-star"></i></span>
+                          <span><i class = "fas fa-star"></i></span>
+                          <span><i class = "far fa-star"></i></span>
+                      </div>
+                  </div>
+                  <a href = "#" class = "product-name">{{item.product_name}}</a>
+                  
+                  <p class = "product-price"></p>
+                  <p class = "product-price">Rs  {{item.price}}</p>
+              </div>
+
+              <div class = "off-info">
+                  <h2 class = "sm-title">25% off</h2>
+              </div>
+          </div>
+          <!-- end of single product -->
+          </div>
+          </div>
+          </div>
+          </div>
+        
+
+
+
+          <div  style="height: 300px; background-color: #eee;">
+            <h2 class="til  mt-4"> Happy Customer</h2>
+          <div class="slider">
+          <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>
+          <input type="radio" name="slider" title="slide2" class="slider__nav"/>
+          <input type="radio" name="slider" title="slide3" class="slider__nav"/>
+          <input type="radio" name="slider" title="slide4" class="slider__nav"/>
+          <div class="slider__inner">
+            <div class="slider__contents"><i class="slider__image fa fa-codepen"></i>
+              <h2 class="slider__caption">Ankit</h2>
+              <p class="slider__txt"> Best Flower Quality ! Fast Delivery</p>
+            </div>
+            <div class="slider__contents"><i class="slider__image fa fa-newspaper-o"></i>
+              <h2 class="slider__caption">Himanshu</h2>
+              <p class="slider__txt">Nice Flowers</p>
+            </div>
+            <div class="slider__contents"><i class="slider__image fa fa-television"></i>
+              <h2 class="slider__caption">Anmol</h2>
+              <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
+            </div>
+            <div class="slider__contents"><i class="slider__image fa fa-diamond"></i>
+              <h2 class="slider__caption">diamond</h2>
+              <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
+            </div>
+          </div>
+        </div>
+
+
+        </div>

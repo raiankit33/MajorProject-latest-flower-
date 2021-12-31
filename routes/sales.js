@@ -7,9 +7,12 @@ router.post("/add", (req, res, next) => {
   // res.send("Add Sales");
 
   let newSale = new Sale({
-    sold_quantity: req.body.sold_quantity,
+    address: req.body.address,
+    phone_no: req.body.phone_no,
+    city: req.body.state,
+    zip_code: req.body.zip_code,
+    city: req.body.city,
     created_by: req.body.created_by,
-    date: req.body.date,
   });
 
   Sale.addSale(newSale, (err, sale) => {

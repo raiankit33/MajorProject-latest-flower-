@@ -2,15 +2,31 @@ const mongoose = require("mongoose");
 const config = require("../config/database");
 
 const SaleSchema = mongoose.Schema({
-  sold_quantity: {
+  address: {
+    type: String,
+    required: true,
+  },
+  phone_no: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  zip_code: {
+    type: String,
+    required: true,
+  },
+  city: {
     type: String,
     required: true,
   },
   created_by: {
-    type: String,
-    required: true,
-  },
-  date: {
     type: String,
     required: true,
   },

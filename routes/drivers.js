@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Driver = require("../models/driver");
 const config = require("../config/database");
-
+const { ExtractJwt } = require("passport-jwt");
+const jwt = require("jsonwebtoken");
 router.post("/register", (req, res, next) => {
   // res.send("Register Drivers");
 
@@ -14,8 +15,8 @@ router.post("/register", (req, res, next) => {
     units: req.body.units,
     initial_quantity:req.body.initial_quantity,
     alert_quantity:req.body.alert_quantity,
-    sold_quantity:req.body.sold_quantity,
-    receive_item:req.body.receive_item,
+    image: req.body.image,
+    
     created_by: req.body.created_by,
   });
 
@@ -30,18 +31,47 @@ router.post("/register", (req, res, next) => {
   });
 });
 
-router.get("/getDrivers", (req, res, next) => {
+// router.get("/getDrivers",  (req, res, next) => {
+//   // res.send("GET Drivers");
+
+
+//     Driver.getDrivers(req.query.user, (err, drivers) => {
+//       if (err) {
+//         res.json({ success: false, msg: err });
+//       } else {
+       
+//         res.json({ success: true, count: drivers.length, data: drivers });
+//       }
+//     });
+  
+//  });
+ 
+
+router.get("/getDrivers", verifyToken,  (req, res, next) => {
   // res.send("GET Drivers");
 
-  Driver.getDrivers(req.query.user, (err, drivers) => {
-    if (err) {
-      res.json({ success: false, msg: err });
-    } else {
-     
-      res.json({ success: true, count: drivers.length, data: drivers });
-    }
-  });
-});
+
+  jwt.verify(req.token,'secretkey',(err,authData)=>{  
+    if(err){  
+        res.sendStatus(403); 
+        res.status(400).json({
+          success: false,
+          msg: "Something went wrong! Driver not deleted",
+        }); 
+    }else{  
+      Driver.getDrivers(req.query.user, (err, drivers) => {
+              if (err) {
+                res.json({ success: false, msg: err });
+              } else {
+               
+                res.json({ success: true, count: drivers.length, data: drivers });
+              }
+            }); 
+    }  
+});  
+  
+ });
+
 
 router.get("/read/:id", (req, res, next) => {
   Driver.getDriverById(req.params.id, (err, driver) => {
@@ -70,6 +100,25 @@ router.patch("/update", (req, res, next) => {
     }
   });
 });
+
+
+function verifyToken(req, res, next){
+ const bearerHeader = req.headers['Authorization'];
+
+ if(typeof bearerHeader !== 'undefined'){
+
+  const bearer = bearerHeader ;
+  const bearerToken = bearer[1];
+ 
+  req.token = bearerToken;
+
+  next();
+ }else{
+ res.status(400).json({
+   success:false
+ })
+ }
+}
 
 router.delete("/delete/:id", (req, res, next) => {
   Driver.deleteDriver(req.params.id, (err, data) => {

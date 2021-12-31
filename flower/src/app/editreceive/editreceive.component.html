@@ -1,0 +1,26 @@
+
+
+<app-navbar2></app-navbar2>
+
+
+
+<form class="modal-content" (submit)="updateDriver()"    method="post">
+    <div class="container">
+      
+      <p>Please fill Data</p>
+      
+      <label for="name"><b> Received Quantity  </b></label>
+      <input type="text"  required  [(ngModel)]="userObj.receive_item" name ="receive_item"  >
+    
+  
+      <div class="clearfix">
+        <button type="submit"  id="submitDetails"  class="btn"  > Update </button>
+         
+    
+      </div>
+        
+    </div>
+    <br>
+  
+  </form>
+   

@@ -1,0 +1,78 @@
+<app-navbar2></app-navbar2>
+
+<div class="" style="background-color: #eee; height: 750px;">
+ <div class="center">
+<h1 style="margin-left: 800px; width: 190px;">ITEM </h1>
+</div>
+
+
+<div class="card shadow ml-4 mr-4 rounded" >
+  <h5 class="card-header" style="background-color: white;">
+    <div class="row"><input type="text" class="col-md-2 ml-5 "  [(ngModel)]="filterString" (ngModelChange)="SearchI()" placeholder="Search by product name">
+    
+     
+      <button type="button" style="margin-left: 1200px; width: 130px;"  routerLink="/addsetting" class="btn btn-primary">Add Data </button>
+    </div>
+  </h5>
+  <div class="card-body">
+    <table class="table">
+      <thead >
+        <tr>
+          <th scope="col">Date </th>
+           <th scope="col">Product Code </th>
+          <th scope="col">Product Name  </th>
+          <th scope="col" (click)="sortData('price')">Price <i class="fa fa-sort"></i></th>
+          <th scope="col">Units</th>
+          <th scope="col">Initial Quantity</th>
+          
+          <th scope="col">Alert Level Quantity</th>
+          <th scope="col">Image</th>
+          <!-- <th scope="col">Sold Quantity</th>
+          <th scope="col">Received Quantity</th> -->
+          <th scope="col">Action</th>
+          
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let driver of driversDetails |  filter:filterString | orderBy:key : reverse | paginate: { itemsPerPage: 6, currentPage: p }  ">
+          <td>{{driver.date}}</td>
+          <td>{{driver.product_code}}</td>
+          <td>{{driver.product_name}}</td>
+          <td>Rs {{driver.price}}</td>
+          <td>{{driver.units}}</td>
+          <td>{{driver.initial_quantity}}</td>
+          <td>{{driver.alert_quantity}}</td>
+          <td><img src="{{driver.image}}.jpg" style="width: 40px; height:30px ;" alt="livres"></td>
+          <!-- <td>{{driver.sold_quantity}}</td>
+          <td>{{driver.receive_item}}</td> -->
+          <td>
+            <li class="list-inline-item">
+              <button class="btn btn-success btn-sm rounded-0" (click)="editDriver(driver)"  type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+          </li>
+          <li class="list-inline-item">
+            <button class="btn btn-danger btn-sm rounded-0" 
+            
+           
+            (click)="deleteDriver(driver._id)"
+             type="button" data-toggle="tooltip"
+            
+           
+              data-placement="top" title="Delete">
+              <i class="fa fa-trash"></i>
+            </button>
+        </li>
+          </td>
+         
+        </tr>
+      
+      
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    
+    </table>
+  </div>
+</div>
+  
+  
+</div>

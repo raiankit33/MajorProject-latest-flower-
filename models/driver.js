@@ -30,11 +30,11 @@ const DriverSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  sold_quantity: {
-    type: String,
-    required: true,
-  },
-  receive_item: {
+  // sold_quantity: {
+  //   type: String,
+  //   required: true,
+  // },
+  image: {
     type: String,
     required: true,
   },
@@ -62,8 +62,8 @@ module.exports.addDriver = (newDriver, callback) => {
 
 // GET Drivers
 module.exports.getDrivers = (user, callback) => {
-  let query = { created_by: user };
-  Driver.find(query, callback);
+  // let query = { created_by: user };
+  Driver.find( callback);
 };
 
 // Update Driver

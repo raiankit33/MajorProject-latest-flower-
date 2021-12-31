@@ -1,0 +1,68 @@
+<app-navbar2></app-navbar2>
+
+
+
+<div class="" style="background-color: #eee; height: 750px;">
+  <div class="center">
+ <h1 style="margin-left: 800px;">  DASHBOARD  </h1>
+ </div>
+ 
+ 
+ <div class="card shadow ml-4 mr-4 rounded" >
+   <h5 class="card-header" style="background-color: white;">
+     <div class="row"><input type="text" class="col-md-2" [(ngModel)]="filterString" placeholder="Search by product name">
+     
+ 
+      
+     </div>
+   </h5>
+   <div class="card-body">
+    <table class="table">
+      <thead >
+        <tr >
+        
+          <th scope="col">Product Code</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Initial Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Sold Quantity</th>
+     
+          
+         
+          <th scope="col">Total Revenue</th>
+          <th scope="col">Profit</th>
+          <th scope="col">Profit %</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let driver of driversDetails |paginate: { itemsPerPage: 7, currentPage: p }">
+         
+          <td>{{driver.product_code}}</td>
+          <td>{{driver.product_name}}</td>
+          <td>{{driver.initial_quantity}}</td>
+          <td>Rs{{driver.price}}</td>
+          <td>40</td>
+         
+  
+          
+          <td>60</td>
+         
+          <td>{{40 * driver.price}}</td>
+          <td>{{40/driver.initial_quantity *100}} %</td>
+   
+  
+        </tr>
+  
+     
+     
+       
+       
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+   </div>
+ </div>
+   
+   
+ </div>

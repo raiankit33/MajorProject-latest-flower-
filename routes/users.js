@@ -13,6 +13,7 @@ router.post("/register", (req, res, next) => {
     email: req.body.email,
     username: req.body.username,
     password: req.body.password,
+    confirm_password: req.body.confirm_password,
   });
 
   User.addUser(newUser, (err, user) => {
@@ -48,12 +49,13 @@ router.post("/authenticate", (req, res, next) => {
 
         return res.json({
           success: true,
-          token: "JWT " + token,
+          token: token,
           user: {
             id: user._id,
             name: user.name,
             username: user.username,
             email: user.email,
+        
           },
         });
       } else {

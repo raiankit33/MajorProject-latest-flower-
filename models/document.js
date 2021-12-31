@@ -3,25 +3,27 @@ const mongoose = require("mongoose");
 
 
 const DocumentSchema = new mongoose.Schema({
-  filename: {
+  address: {
     type: String,
     required: true,
   },
-  tags: {
-    type: String,
-    required: true,
-  },
-  life_span: {
+ 
+  phone_no: {
     type: String
   },
-  type: {
+  city: {
     type: String,
     required:true
   },
-  filepath: {
+  state: {
     type: String,
     required: true,
-  }
+  },
+  zip: {
+    type: String,
+    required: true,
+  },
+
 });
 
 const DocumentModel = module.exports = mongoose.model("Document", DocumentSchema);
